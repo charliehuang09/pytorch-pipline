@@ -1,2 +1,2 @@
-import BenchMark
+from BenchMark import BenchMark
 import Pipline
