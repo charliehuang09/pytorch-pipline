@@ -4,7 +4,7 @@ from torchvision import datasets
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import transforms
-from pytorchPipline.Pipline import TrainModel, TestModel
+from pytorchPipline.Pipline import TrainModel, TestModel, FitModel
 from timeit import default_timer as timer
 
 def BenchMark(epoch=10):
