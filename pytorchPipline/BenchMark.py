@@ -4,10 +4,18 @@ from torchvision import datasets
 import torch.nn as nn
 import torch.optim as optim
 from torchvision import transforms
+import numpy as np
+from tqdm import trange
 from pytorchPipline.Pipline import TrainModel, TestModel, FitModel
 from timeit import default_timer as timer
 
-def BenchMark(epoch=10):
+def BenchMark(epoch=10, progressBar=True):
+
+    if progressBar:
+        epoch = trange(epoch)
+    else:
+        epochs = np.linspace(0, epoch-1, epoch-1)
+
     start = timer()
     trainLoader = datasets.MNIST(
         root="./",
