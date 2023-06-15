@@ -1,2 +1,2 @@
 from pytorchPipline.Pipline import TestModel, TrainModel, FitModel
-from pytorchPipline.BenchMark import BenchMarks
+from pytorchPipline.BenchMark import BenchMark
