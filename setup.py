@@ -7,19 +7,22 @@ here = os.path.abspath(os.path.dirname(__file__))
 with codecs.open(os.path.join(here, "README.md"), encoding="utf-8") as fh:
     long_description = "\n" + fh.read()
 
-VERSION = '0.1.1'
+VERSION = '0.0.5'
 DESCRIPTION = 'Making pytorch training easier'
+LONG_DESCRIPTION = 'A package that has functions making the training loop faster to write'
 
 # Setting up
 setup(
-    name="CPytorch Pipline",
+    name="pytorch-pipline",
     version=VERSION,
     author="Charlie Huang",
     author_email="<charliehuang09@gmail.com>",
     description=DESCRIPTION,
+    long_description_content_type="text/markdown",
+    long_description=long_description,
     packages=find_packages(),
-    install_requires=['torch', 'numpy', 'tqdm', 'torchvision'],
-    keywords=['python', 'pytorch'],
+    install_requires=['torchvision', 'torch', 'numpy', 'tqdm'],
+    keywords=['python'],
     classifiers=[
         "Development Status :: 1 - Planning",
         "Intended Audience :: Developers",
