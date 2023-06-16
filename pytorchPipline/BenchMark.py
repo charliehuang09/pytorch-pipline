@@ -10,12 +10,6 @@ from pytorchPipline.Pipline import TrainModel, TestModel, FitModel
 from timeit import default_timer as timer
 
 def BenchMark(epoch=10, batch_size = 256, progressBar=True):
-
-    if progressBar:
-        epoch = trange(epoch)
-    else:
-        epochs = np.linspace(0, epoch-1, epoch-1)
-
     start = timer()
     trainLoader = datasets.MNIST(
         root="./",
@@ -81,6 +75,6 @@ def BenchMark(epoch=10, batch_size = 256, progressBar=True):
     
     # testLoss, testAccuracy = TestModel(testLoader, model, criterion, device=device, progressBar=True)
     
-    model, callback = FitModel(epoch, trainLoader, testLoader, model, criterion, optimizer, device=device, progressBar=False, trainingMetrics=False)
+    model, callback = FitModel(epoch, trainLoader, testLoader, model, criterion, optimizer, device=device, progressBar=progressBar, trainingMetrics=False)
     time = timer() - start
     return time
