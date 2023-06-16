@@ -9,7 +9,7 @@ from tqdm import trange
 from pytorchPipline.Pipline import TrainModel, TestModel, FitModel
 from timeit import default_timer as timer
 
-def BenchMark(epoch=10, progressBar=True):
+def BenchMark(epoch=10, batch_size = 256, progressBar=True):
 
     if progressBar:
         epoch = trange(epoch)
@@ -30,8 +30,8 @@ def BenchMark(epoch=10, progressBar=True):
         transform=transforms.ToTensor()
         )
     
-    trainLoader = DataLoader(trainLoader, batch_size=256)
-    testLoader = DataLoader(testLoader, batch_size=256)
+    trainLoader = DataLoader(trainLoader, batch_size=batch_size)
+    testLoader = DataLoader(testLoader, batch_size=batch_size)
     
     device = torch.device('mps')
     
