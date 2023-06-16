@@ -10,6 +10,7 @@ from pytorchPipline.Pipline import TrainModel, TestModel, FitModel
 from timeit import default_timer as timer
 
 def BenchMark(epoch=10, batch_size = 256, progressBar=True):
+    
     start = timer()
     trainLoader = datasets.MNIST(
         root="./",
