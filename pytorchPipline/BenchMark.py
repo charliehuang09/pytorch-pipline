@@ -9,7 +9,7 @@ from tqdm import trange
 from pytorchPipline.Pipline import TrainModel, TestModel, FitModel
 from timeit import default_timer as timer
 
-def BenchMark(epoch=10, batch_size = 256, progressBar=True, num_workers=0):
+def BenchMark(epoch=10, batch_size = 256, progressBar=True, num_workers=0, device=torch.device('cpu')):
     
     start = timer()
     trainLoader = datasets.MNIST(
@@ -27,8 +27,6 @@ def BenchMark(epoch=10, batch_size = 256, progressBar=True, num_workers=0):
     
     trainLoader = DataLoader(trainLoader, batch_size=batch_size, num_workers=num_workers)
     testLoader = DataLoader(testLoader, batch_size=batch_size, num_workers=num_workers)
-    
-    device = torch.device('mps')
     
     class mainConvModel(nn.Module):
     
